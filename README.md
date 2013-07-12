@@ -14,7 +14,7 @@ Install change reloading:
 `$ gem install shotgun`
 
 Run app:
-'$ shotgun -p 4567 app.rb'
+`$ shotgun -p 4567 app.rb`
 
 Load in browser:
 `http://localhost:4567/`

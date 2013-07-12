@@ -1,10 +1,18 @@
 require 'sinatra'
 
-# Uses shotgun for reloading changes
-# gem install shotgun
-# shotgun -p 4567 shotgun_test.rb
+views = [:page1, :page2]
 
 get '/' do
-  @foo = 2
+  @page_name = "Home"
 	erb :index
+end
+
+get '/:name' do
+  @view = params[:name].to_sym
+
+  if views.include? @view
+    erb @view
+  else
+    erb :page404
+  end
 end
