@@ -21,3 +21,8 @@ Load in browser:
 
 ### Contributors
 
+
+### Scripts used
+(MathJax)[http://docs.mathjax.org/en/v1.1-latest/start.html]
+jQuery
+

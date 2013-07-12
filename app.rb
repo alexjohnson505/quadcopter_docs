@@ -1,12 +1,13 @@
 require 'sinatra'
 
-views = [:page1, :page2]
+views = [:math, :latex]
 
 get '/' do
   @page_name = "Home"
 	erb :index
 end
 
+# Match URL to a view
 get '/:name' do
   @view = params[:name].to_sym
 
