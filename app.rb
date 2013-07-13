@@ -1,10 +1,13 @@
 require 'sinatra'
+require 'redcarpet'
+require "httparty"
 
 views = [:math, :latex]
+docs = [:hardware]
 
 get '/' do
-  @page_name = "Home"
-	erb :index
+  @content = "Home Page"
+  erb :index
 end
 
 # Match URL to a view
@@ -13,7 +16,19 @@ get '/:name' do
 
   if views.include? @view
     erb @view
+
+  elsif docs.include? @view
+  	redcarpet = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
+  	# response = HTTParty.get('/views/hardware.md')
+
+	@content = redcarpet.render(File.read('views/hardware.md'))
+	erb :index
+
   else
+  	@content = @view
     erb :page404
   end
 end
+
+
+
