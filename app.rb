@@ -2,8 +2,14 @@ require 'sinatra'
 require 'redcarpet'
 require "httparty"
 
+# Page list
 views = [:math, :latex]
-docs = [:hardware]
+@docs = [:hardware, :about, :overview]
+
+@menu = ""
+@docs.each do |item|
+  @menu += '<a href="/#{item}">#{item}</a>'
+end
 
 get '/' do
   @content = "Home Page"
@@ -17,18 +23,13 @@ get '/:name' do
   if views.include? @view
     erb @view
 
-  elsif docs.include? @view
-  	redcarpet = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
-  	# response = HTTParty.get('/views/hardware.md')
-
-	@content = redcarpet.render(File.read('docs/hardware.md'))
-	erb :index
+  elsif @docs.include? @view
+    redcarpet = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
+	  @content = redcarpet.render(File.read('docs/hardware.md'))
+	  erb :index
 
   else
   	@content = @view
     erb :page404
   end
 end
-
-
-
