@@ -21,7 +21,7 @@ get '/:name' do
   	redcarpet = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
   	# response = HTTParty.get('/views/hardware.md')
 
-	@content = redcarpet.render(File.read('views/hardware.md'))
+	@content = redcarpet.render(File.read('docs/hardware.md'))
 	erb :index
 
   else

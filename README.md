@@ -7,10 +7,12 @@ Provide documentation, instructions, and details for our Quadcopter project.
 Clone repo:
 '$ git clone x'
 
-Install gem:
+Install Sinatra.rb:
 `$ gem install sinatra`
 
-Install change reloading:
+Install gems
+`$ gem install shotgun`
+`$ gem install httparty`
 `$ gem install shotgun`
 
 Run app:
