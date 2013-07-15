@@ -4,12 +4,7 @@ require "httparty"
 
 # Page list
 views = [:math, :latex]
-@docs = [:hardware, :about, :overview]
-
-@menu = ""
-@docs.each do |item|
-  @menu += '<a href="/#{item}">#{item}</a>'
-end
+docs  = [:hardware, :about, :overview]
 
 get '/' do
   @content = "Home Page"
@@ -23,10 +18,10 @@ get '/:name' do
   if views.include? @view
     erb @view
 
-  elsif @docs.include? @view
+  elsif docs.include? @view
     redcarpet = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
-	  @content = redcarpet.render(File.read('docs/hardware.md'))
-	  erb :index
+	  @content = redcarpet.render(File.read("docs/#{@view}.md"))
+	  erb @content
 
   else
   	@content = @view
