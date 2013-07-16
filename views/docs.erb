@@ -1,0 +1,5 @@
+<h1>Docs Index</h1>
+
+<% docs.each do |doc| %>
+<li><a href="<%= doc.chomp('.md') %>"><%= doc.chomp('.md') %></a></li>
+<% end %>
