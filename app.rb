@@ -27,6 +27,7 @@ get '/docs/:name' do
   end
 end
 
+# TODO: Simplify this logic into previous function
 # Find in Docs subdirectory
 get '/docs/*/:name' do
   # Build file URL
