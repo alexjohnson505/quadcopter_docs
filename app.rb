@@ -1,4 +1,4 @@
-require ''
+require 'sinatra'
 
 # Page list
 views = [:index, :videos]  # Allowed views
@@ -7,6 +7,13 @@ docs = Dir['docs/**/*.md'] # All markdown files in docs/
 get '/' do
   @content = "Welcome to the Home Page"
   erb :index
+end
+
+# 404 Not Found :(
+# This is the route users will be rediected to when they attempt
+# to go somewhere that doesn't exist.
+get '/404' do
+  erb :'404'
 end
 
 # Find in Docs
@@ -20,8 +27,7 @@ get '/docs/:name' do
     @content = redcarpet.render(File.read(@view))
     erb :index
   elsif
-    @content = @view + " Requested docs file not found"
-    erb :index
+    redirect '/404'
   end
 end
 
@@ -37,8 +43,7 @@ get '/docs/*/:name' do
     @content = redcarpet.render(File.read(@view))
     erb :index
   elsif
-    @content = @view + " Requested docs file not found"
-    erb :index
+    redirect '/404'
   end
 end
 
@@ -50,6 +55,6 @@ get '/:name' do
     erb @view
 
   else
-    erb :page404
+    redirect '/404'
   end
 end
