@@ -6,11 +6,8 @@ Provide documentation, instructions, and details for our Quadcopter project.
 
 Install gems:
 ```
-$ gem install sinatra
-$ gem install shotgun
-$ gem install httparty
-$ gem install shotgun
-$ gem install redcarpet
+$ gem install bundler
+$ bundle install
 ```
 
 Run app:
