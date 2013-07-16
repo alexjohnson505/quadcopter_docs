@@ -3,17 +3,44 @@ require 'redcarpet'
 require "httparty"
 
 # Page list
-views = [:math, :latex]
-@docs = [:hardware, :about, :overview]
-
-@menu = ""
-@docs.each do |item|
-  @menu += '<a href="/#{item}">#{item}</a>'
-end
+views = [:index, :videos]  # Allowed views
+docs = Dir['docs/**/*.md'] # All markdown files in docs/
 
 get '/' do
-  @content = "Home Page"
+  @content = "Welcome to the Home Page"
   erb :index
+end
+
+# Find in Docs
+get '/docs/:name' do
+  # Build file URL
+  @view = 'docs/' + params[:name] + '.md'
+
+  if docs.include? @view
+    @content = "hello"
+    redcarpet = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
+    @content = redcarpet.render(File.read(@view))
+    erb :index
+  elsif
+    @content = @view + " Requested docs file not found"
+    erb :index
+  end
+end
+
+# Find in Docs subdirectory
+get '/docs/*/:name' do
+  # Build file URL
+  @view = 'docs/' + params[:splat][0] + "/" + params[:name] + '.md'
+
+  if docs.include? @view
+    @content = "hello"
+    redcarpet = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
+    @content = redcarpet.render(File.read(@view))
+    erb :index
+  elsif
+    @content = @view + " Requested docs file not found"
+    erb :index
+  end
 end
 
 # Match URL to a view
@@ -23,13 +50,7 @@ get '/:name' do
   if views.include? @view
     erb @view
 
-  elsif @docs.include? @view
-    redcarpet = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
-	  @content = redcarpet.render(File.read('docs/hardware.md'))
-	  erb :index
-
   else
-  	@content = @view
     erb :page404
   end
 end
