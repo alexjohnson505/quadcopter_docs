@@ -1,4 +1,6 @@
-require ''
+require 'sinatra'
+require 'httparty'
+require 'redcarpet'
 
 # Page list
 views = [:index, :videos]  # Allowed views
