@@ -6,10 +6,6 @@ module QuadrocopterDocs
 			Dir['docs/**/*.md']
 		end
 
-		def menu
-			self.doclist
-		end
-
 		# Requested file available?
 		def contains(path)
 			self.doclist.include? path

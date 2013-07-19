@@ -1,12 +1,22 @@
 <link rel="stylesheet" href="/styles.css" type="text/css" />
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-
+ -->
 <header>
 	<h1>How to Make a Quadrocopter</h1>
-	<a href="/">Home</a>
-	<a href="hardware">hardware</a>
+	<ul>
+		<li><a href="/">home</a></li>
+		<li><a href="hardware">hardware</a></li>
+		<li><a href="docs">docs</a></li>
+			<ul>
+			<% documentation = QuadrocopterDocs::Documentation.new
+			documentation.doclist.each do |doc| %>
+			<li><a href="<%= doc.chomp('.md') %>">
+			<%= doc.chomp('.md') %></a></li>
+			<% end %>
+			</ul>
+	</ul>
 </header>
 
 <%= yield %>
