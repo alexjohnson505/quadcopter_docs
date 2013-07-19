@@ -1,0 +1,6 @@
+<h1>Docs Index</h1>
+
+<% documentation = QuadrocopterDocs::Documentation.new
+documentation.doclist.each do |doc| %>
+<li><a href="<%= doc.chomp('.md') %>"><%= doc.chomp('.md') %></a></li>
+<% end %>
