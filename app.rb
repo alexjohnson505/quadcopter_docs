@@ -1,6 +1,5 @@
-require 'sinatra'
-require 'httparty'
-require 'redcarpet'
+require 'bundler/setup'
+Bundler.require(:default)
 
 # Page list
 views = [:index, :videos]  # Allowed views
