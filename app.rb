@@ -1,52 +1,33 @@
 require 'bundler/setup'
 Bundler.require(:default)
 
+# Fix load path
 $:.unshift File.join(File.dirname(__FILE__), 'lib')
 require 'quadrocopter_docs'
+documentation = QuadrocopterDocs::Documentation.new
 
 # Page list
 views = [:index, :videos]  # Allowed views
-docs = Dir['docs/**/*.md'] # All markdown files in docs/
 
+# Home
 get '/' do
   @content = "Welcome to the Home Page"
   erb :index
 end
 
-# 404 Not Found :(
-# This is the route users will be rediected to when they attempt
-# to go somewhere that doesn't exist.
+# 404 Not Found
 get '/404' do
   erb :'404'
 end
 
-# Find in Docs
-get '/docs/:name' do
-  # Build file URL
-  @view = 'docs/' + params[:name] + '.md'
+# Documentation
+get '/docs/*' do
+  path = 'docs/' + params[:splat][0] + '.md'
 
-  if docs.include? @view
-    @content = "hello"
-    redcarpet = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
-    @content = redcarpet.render(File.read(@view))
+  if documentation.contains(path)
+    @content = documentation.render(path)
     erb :index
-  elsif
-    redirect '/404'
-  end
-end
-
-# TODO: Simplify this logic into previous function
-# Find in Docs subdirectory
-get '/docs/*/:name' do
-  # Build file URL
-  @view = 'docs/' + params[:splat][0] + "/" + params[:name] + '.md'
-
-  if docs.include? @view
-    @content = "hello"
-    redcarpet = Redcarpet::Markdown.new(Redcarpet::Render::HTML, :autolink => true)
-    @content = redcarpet.render(File.read(@view))
-    erb :index
-  elsif
+  else
     redirect '/404'
   end
 end
