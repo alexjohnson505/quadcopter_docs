@@ -1,6 +1,9 @@
 require 'bundler/setup'
 Bundler.require(:default)
 
+$:.unshift File.join(File.dirname(__FILE__), 'lib')
+require 'quadrocopter_docs'
+
 # Page list
 views = [:index, :videos]  # Allowed views
 docs = Dir['docs/**/*.md'] # All markdown files in docs/
