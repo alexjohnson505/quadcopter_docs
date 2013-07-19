@@ -18,8 +18,7 @@ views = [:index, :videos, :docs]  # Allowed views
 before { request.path_info.sub! %r{/$}, '' }
 
 get '/' do
-  @content = "Welcome to the Home Page"
-  erb :index
+  erb "Welcome to the Home Page"
 end
 
 # 404 Not Found
@@ -32,8 +31,7 @@ get '/docs/*' do
   path = 'docs/' + params[:splat][0] + '.md'
 
   if documentation.contains(path)
-    @content = documentation.render(path)
-    erb :index
+    erb documentation.render(path)
   else
     redirect '/404'
   end
