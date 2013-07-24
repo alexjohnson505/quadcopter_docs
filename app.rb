@@ -13,7 +13,7 @@ before { request.path_info.sub! %r{/$}, '' }
 documentation = QuadrocopterDocs::Documentation.new
 
 # Page list
-views = [:index, :videos, :docs]
+views = [:index, :videos, :links, :docs]
 
 
 
