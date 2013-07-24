@@ -1,3 +1,36 @@
 body {
 	background-color: #eee;
+	font-family: Georgia, serif;
+	max-width: 550px;
+	margin: 0 auto;
+}
+header, .content, footer {
+
+
+	padding: 10px 40px;
+}
+header {
+
+}
+.content {
+	min-height: 100%;
+	border-top: 1px solid #ccc;
+}
+footer {
+	border-top: 1px solid #ccc;
+}
+p {
+	font-size: 18px;
+}
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #d16117;
+}
+
+a:hover {
+	text-decoration: underline;
 }
