@@ -2,7 +2,7 @@
 
 sample code such as
 
-``` $ shotgun -p 4567 app.rb
+` $ shotgun -p 4567 app.rb `
 
 ## Longer code sample from imu_visualization:
 
