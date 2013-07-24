@@ -1,6 +1,6 @@
 # Quadcopter Documentation
 
-Provide documentation, instructions, and details for our Quadcopter project.
+Provide documentation, instructions, and details for the Quadcopter project.
 
 ## Installation
 
