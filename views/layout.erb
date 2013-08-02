@@ -3,26 +3,57 @@
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
-<header>
-	<h1>the Quadrocopter Project</h1>
+<div class="wrapper">
+	<header>
+		<h1>the Quadrocopter Project</h1>
+		<p>
+			<a href="https://github.com/nixpulvis">Nathan Lilienthal</a>
+			<a href="https://github.com/dcalacci">Dan Calacci</a>
+			<a href="https://github.com/alexjohnson505">Alex Johnson</a>
+		</p>
+	</header>
 
-	<ul>
-		<li><a href="/">home</a></li>
-		<li><a href="hardware">hardware</a></li>
-		<li><a href="docs">docs</a></li>
+	<nav>
+		<ul>
+			<li><a href="/">home</a></li>
+			<li><a href="hardware">hardware</a></li>
 			<ul>
-			<% documentation = QuadrocopterDocs::Documentation.new
-			documentation.doclist.each do |doc| %>
-			<li><a href="<%= doc.chomp('.md') %>">
-			<%= doc.chomp('.md') %></a></li>
-			<% end %>
+				<li><a href="docs/components/battery">battery</a></li>
+				<li><a href="docs/components/esc">esc</a></li>
+				<li><a href="docs/components/smc">smc</a></li>
 			</ul>
-	</ul>
-</header>
-<div class="content">
-	<%= yield %>
+			<li><a href="docs">docs</a></li>
+			<ul>
+				<li><a href="docs/about">about</a></li>
+				<li><a href="docs/code">code</a></li>
+				<li><a href="docs/hardware">hardware</a></li>
+				<li><a href="docs/links">links</a></li>
+				<li><a href="docs/overview">overview</a></li>
+			</ul>
+		</ul>
+
+		<!-- <ul>
+			TODO: programmatic approach to menu generation
+			<li><a href="/">home</a></li>
+			<li><a href="hardware">hardware</a></li>
+			<li><a href="docs">docs</a></li>
+				<ul>
+				<% documentation = QuadrocopterDocs::Documentation.new
+				documentation.doclist.each do |doc| %>
+				<li><a href="<%= doc.chomp('.md') %>">
+				<%= doc.chomp('.md') %></a></li>
+				<% end %>
+				</ul>
+		</ul> -->
+	</nav>
+
+	<article>
+		<%= yield %>
+		<a href="/" class="back-to-index">Back to Index</a>
+	</article>
 </div>
+
 <footer>
 	<p>By Nate, Dan, Alex</p>
-	<a href="mathjax">MathJAX</a>
+	<p>Special thanks to <a href="mathjax">MathJAX</a></p>
 </footer>

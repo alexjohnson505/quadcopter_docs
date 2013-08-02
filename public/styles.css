@@ -1,36 +1,76 @@
+/* Page Layout */
 body {
 	background-color: #eee;
 	font-family: Georgia, serif;
-	max-width: 550px;
 	margin: 0 auto;
 }
-header, .content, footer {
-
-
-	padding: 10px 40px;
+.wrapper {
+	margin: 0 auto;
+	width: 1180px;
 }
-header {
-
+nav {
+	width: 150px;
+	float: right;
 }
-.content {
+header, article {
+	padding: 5px 185px;
+	background-color: #fff;
+	width: 1020px;
+	box-shadow: 2px 2px 1px #888888;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+article {
 	min-height: 100%;
-	border-top: 1px solid #ccc;
+	padding: 120px 185px;
+
 }
 footer {
-	border-top: 1px solid #ccc;
+	width: 800px;
+	padding: 5px 20px;
+	margin: 0 auto;
+}
+
+/* General Typography */
+h1 {
+
+}
+h2 {
+	font-size: 1.6em;
+	margin: 1.6em 0 .83em;;
+}
+h3 {
+	font-size: 1.4em;
 }
 p {
 	font-size: 18px;
+	line-height: 1.7;
 }
-ul {
-	list-style: none;
-}
-
 a {
 	text-decoration: none;
 	color: #d16117;
 }
-
 a:hover {
 	text-decoration: underline;
+}
+
+/* Section Specific Typography */
+nav ul {
+	padding: 5px;
+	margin: 0;
+	list-style: none;
+}
+header h1 {
+	font-weight: normal;
+	text-align: center;
+	margin: 2em 0 0;
+}
+header p {
+	text-align: center;
+}
+a.back-to-index {
+	text-align: center;
+	margin: 8em auto 0;
+	display: block;
 }
