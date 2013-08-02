@@ -13,18 +13,21 @@ nav {
 	float: right;
 }
 header, article {
-	padding: 5px 185px;
-	background-color: #fff;
 	width: 1020px;
-	box-shadow: 2px 2px 1px #888888;
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
+header {
+	height: 130px;
+	padding: 10px 20px;
+}
 article {
+	padding: 5px 185px;
+	margin-top: 15px;
 	min-height: 100%;
 	padding: 120px 185px;
-
+	background-color: #fff;
 }
 footer {
 	width: 800px;
@@ -61,10 +64,13 @@ nav ul {
 	margin: 0;
 	list-style: none;
 }
+header img {
+	float: left;
+}
 header h1 {
 	font-weight: normal;
 	text-align: center;
-	margin: 2em 0 0;
+	margin: .5em 0 0;
 }
 header p {
 	text-align: center;
