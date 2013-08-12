@@ -6,7 +6,7 @@
 <div class="wrapper">
 	<header>
 		<img src="/images/quadcopter-logo.png" height="120" width="423">
-		<h1>the Quadrocopter Project</h1>
+		<h1>the Quadcopter Project</h1>
 		<p>
 			<a href="https://github.com/nixpulvis">Nathan Lilienthal</a>
 			<a href="https://github.com/dcalacci">Dan Calacci</a>
@@ -38,7 +38,7 @@
 			<li><a href="hardware">hardware</a></li>
 			<li><a href="docs">docs</a></li>
 				<ul>
-				<% documentation = QuadrocopterDocs::Documentation.new
+				<% documentation = QuadcopterDocs::Documentation.new
 				documentation.doclist.each do |doc| %>
 				<li><a href="<%= doc.chomp('.md') %>">
 				<%= doc.chomp('.md') %></a></li>

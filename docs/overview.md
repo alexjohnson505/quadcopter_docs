@@ -1,4 +1,4 @@
-# Quadrocopter
+# Quadcopter
 
  * __Nathan Lilienthal__ [@nixpulvis](https://github.com/nixpulvis)
  * __Alex Johnson__ [@alexjohnson505](https://github.com/alexjohnson505)

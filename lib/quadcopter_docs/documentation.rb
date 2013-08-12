@@ -1,4 +1,4 @@
-module QuadrocopterDocs
+module QuadcopterDocs
 	class Documentation
 
 		# List all markdown files in docs/ folder

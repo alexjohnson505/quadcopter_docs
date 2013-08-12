@@ -3,14 +3,14 @@ Bundler.require(:default)
 
 # Fix load path
 $:.unshift File.join(File.dirname(__FILE__), 'lib')
-require 'quadrocopter_docs'
+require 'quadcopter_docs'
 
 # Chop off any trailing slashes. This will make the two routes,
 # '/foo/bar' and '/foo/bar/' equivalent in the eyes of both the
 # user and our application.
 before { request.path_info.sub! %r{/$}, '' }
 
-documentation = QuadrocopterDocs::Documentation.new
+documentation = QuadcopterDocs::Documentation.new
 
 # Page list
 views = [:index, :videos, :links, :docs]
